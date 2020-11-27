@@ -1,11 +1,22 @@
 {
   "name": "code",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricChang159/LeetCode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EricChang159/LeetCode/issues"
+  },
+  "homepage": "https://github.com/EricChang159/LeetCode#readme",
+  "description": "",
+  "dependencies": {
+    "jest": "^26.6.3"
+  }
 }
