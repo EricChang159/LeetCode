@@ -15,41 +15,29 @@
 // Input: nums = [0]
 // Output: []
 
-let question = [-1,0,1,2,-1,-4]
-// let question = [-4,-1,-1,0,1,2]
-/**
- * @param {number[]} nums
- * @return {number[][]}
- */
-const threeSum = function(nums) {
-  nums.sort((a,b)=> {
-    return a - b
-  })
-  let finallyAnswer = []
-  let MapNum = new Map()
-  for (let i = 0; i < nums.length; i++) {
-    MapNum.set(nums[i], i)
-  }
-  let i = 0
-  let j = nums.length - 1
-  let towSumArray = []
-  while (i < j) {
-    let twoSum = nums[i] + nums[j]
-    if (MapNum.has(-twoSum) && MapNum.get(-twoSum) !== i && MapNum.get(-twoSum) !== j) {
-      if (!towSumArray.includes(twoSum)) {
-        finallyAnswer.push([nums[i], nums[j], -twoSum])
-        towSumArray.push(twoSum)
+let nums = [-1, 0, 1, 2, -1, -4]
+var threeSum = function(nums) {
+  nums.sort((a, b) => a - b);
+  const r = [];
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (nums[i] > 0) break;
+    if (i > 0 && nums[i] === nums[i - 1]) continue;
+    let left = i + 1;
+    let right = nums.length - 1;
+    while (left < right) {
+      const s = nums[i] + nums[left] + nums[right];
+      if (s < 0) left += 1;
+      else if (s > 0) right -= 1;
+      else {
+        r.push([nums[i], nums[left], nums[right]]);
+        while (left < right && nums[left] === nums[left + 1]) left += 1;
+        while (left < right && nums[right] === nums[right - 1]) right -= 1;
+        left += 1;
+        right -= 1;
       }
-      j--
-    }
-    else if (nums[i] < twoSum) {
-      i++
-    } else if (nums[i] > twoSum) {
-      j--
     }
   }
-  return finallyAnswer
+  return r;
 };
-
-let answer = threeSum(question)
-console.log(answer)
+//  index 為該項
+//  left right 為當輪， 排除不用蒜
