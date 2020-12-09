@@ -16,10 +16,10 @@
  * }
  */
 
-function ListNode(val, next) {
-  this.val = (val===undefined ? 0 : val)
-  this.next = (next===undefined ? null : next)
-}
+// function ListNode(val, next) {
+//   this.val = (val===undefined ? 0 : val)
+//   this.next = (next===undefined ? null : next)
+// }
 let l1 = [1,2,4], l2 = [1,3,4]
 // /**
 //  * @param {ListNode} l1
@@ -45,7 +45,7 @@ var mergeTwoLists = function (l1, l2) {
       currentNode.next = l2;
       l2 = l2.next;
     }
-    currentNode = currentNode.next;
+    currentNode = currentNode.next; // 要繼續往下一個節點走
   }
   // 直到 l1 或 l2 一方為 null 則停止比較，並且將另外一邊剩下的節點加入result。
   if (l1 === null) {
