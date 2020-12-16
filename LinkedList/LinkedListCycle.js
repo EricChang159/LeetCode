@@ -30,17 +30,13 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-// var hasCycle = function(head) {
-//     let slow = head
-//     let fast = head
-//     while(fast && fast.next) {
-//         slow = slow.next
-//         fast = fast.next.next
-//         if (slow === fast) return true
-//     }
-//     return false
-// };
-let data = new Map()
-let dat = {a:123}
-data.set(dat, 1)
-console.log(data.has(dat))
+var hasCycle = function(head) {
+    let slow = head
+    let fast = head
+    while(fast && fast.next) {
+        slow = slow.next
+        fast = fast.next.next
+        if (slow === fast) return true
+    }
+    return false
+};
